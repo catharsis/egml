@@ -1,0 +1,8 @@
+Dependencies
+. rebar
+. make
+
+Build
+To build the egml library just run make.
+$ make
+

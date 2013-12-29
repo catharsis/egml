@@ -1,7 +1,8 @@
 {application, egml,
  [
-  {description, ""},
-  {vsn, "1"},
+  {description, "Erlang Graph Modeling Lanugage (GML) Parser"},
+  {vsn, "1.0.0"},
+  {modules, [egml]},
   {registered, []},
   {applications, [
                   kernel,
@@ -10,3 +11,4 @@
   {mod, { egml_app, []}},
   {env, []}
  ]}.
+
