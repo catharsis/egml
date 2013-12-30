@@ -16,7 +16,7 @@ Rules.
 {INTEGER}		:
 	{token, {integer, TokenLine, list_to_integer(TokenChars)}}.
 {KEY}			:
-	{token, {key, TokenLine, TokenChars, TokenLen}}.
+	{token, {key, TokenLine, list_to_atom(TokenChars)}}.
 {REAL} :
 	{token, {real, TokenLine, list_to_float(TokenChars)}}.
 [\[\]] :
