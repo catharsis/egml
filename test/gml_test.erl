@@ -37,7 +37,9 @@ from_file_test_() ->
 					 {edge, [{source, 2}, {target, 3}, {label, "Edge from node 2 to node 3"}]},
 					 {edge, [{source, 3}, {target, 1}, {label, "Edge from node 3 to node 1"}]}
 					  ]
-				   }, Graph)
+				   }, Graph),
+	 ?_assertError(missing_edge_target, gml:from_string("graph [edge [ source 1]]", [verify_edges])),
+	 ?_assertError(missing_edge_source, gml:from_string("graph [edge [ target 1]]", [verify_edges]))
 	].
 
 from_string_test_() ->
