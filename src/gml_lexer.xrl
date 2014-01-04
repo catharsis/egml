@@ -9,6 +9,7 @@ KEY = [a-zA-Z][a-zA-Z0-9]*
 INTEGER = {SIGN}{D}+
 MANTISSA = (E{SIGN}{D}+)?
 REAL = {SIGN}{D}*\.{D}*{MANTISSA}
+COMMENT = #.*
 Rules.
 
 {STRING} :
@@ -23,6 +24,9 @@ Rules.
 	{token, {list_to_atom(TokenChars), TokenLine}}.
 {WS}+ :
 	skip_token.
+{COMMENT} :
+	skip_token.
+
 Erlang code.
 strip_quots(S, L) ->
 	string:substr(S, 2, L-2).

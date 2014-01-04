@@ -21,6 +21,7 @@ simple_test() ->
 nested_test() ->
 	GML = "graph
 	[
+	#This is a comment
 		node [ id 1 ]
 		node [ id 2 ]
 		node [ id 3 ]
