@@ -32,12 +32,16 @@ from_file(FileName) ->
 
 -spec from_file(FileName::string(), Options::gml_options()) -> {ok, gml_graph()} | {error, term()}.
 from_file(FileName, Options) ->
-	{ok, File} = file:open(FileName, [read]),
-	Tokens = loop(File, []),
-	file:close(File),
-	case ?PARSER:parse(Tokens) of
-		{ok, Graph} ->
-			{ok, verify_graph(Graph, Options)};
+	case file:open(FileName, [read]) of
+		{ok, File} ->
+			Tokens = loop(File, []),
+			file:close(File),
+			case ?PARSER:parse(Tokens) of
+				{ok, Graph} ->
+					{ok, verify_graph(Graph, Options)};
+				Other ->
+					Other
+			end;
 		Other ->
 			Other
 	end.

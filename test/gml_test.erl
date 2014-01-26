@@ -15,6 +15,9 @@
 %%			1 -> 2
 %%			2 -> 3
 %%			3 -> 1
+from_file_enoent_test() ->
+	?assertEqual({error, enoent}, gml:from_file("/not/a/file", [])).
+
 from_file_test_() ->
 	{ok, Graph} = gml:from_file(?testdata_simple, [verify_edges]),
 	NodeProperties = lists:sort(gml:node_properties(Graph, [id, label])),
